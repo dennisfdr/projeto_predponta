@@ -30,7 +30,7 @@ public class SaleDto {
 		id = entity.getId();
 		visited = entity.getVisited();
 		deals = entity.getDeals();
-		amount = entity.getAmont();
+		amount = entity.getAmount();
 		date = entity.getDate();
 		seller = new SellerDto(entity.getSeller());
 	}
