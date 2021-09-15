@@ -60,7 +60,6 @@ const BarChart = () => {
             }
         },
     };
-    
       
     return (
         <Chart 
