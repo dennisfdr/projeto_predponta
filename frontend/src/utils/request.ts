@@ -1,0 +1,1 @@
+export const BASE_URL = 'http://loalhost:8080';
