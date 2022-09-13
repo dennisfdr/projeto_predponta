@@ -22,9 +22,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-
 @Table(name = "empresa")
-
 public class Empresa implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
