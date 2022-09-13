@@ -20,12 +20,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 
 @Entity
 @Table(name = "empresa")
+@EntityScan(basePackages = {"com.br.predponta.app.entities"})
 public class Empresa implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
