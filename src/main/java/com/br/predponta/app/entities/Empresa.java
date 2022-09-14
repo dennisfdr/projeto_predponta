@@ -20,12 +20,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+
 
 
 @Entity
 @Table(name = "empresa")
-@EntityScan(basePackages = {"com.br.predponta.app.entities"})
+
 public class Empresa implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -73,12 +73,7 @@ public class Empresa implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date empProxMedicaoMca;
     
-    @Column(columnDefinition = "TIMESTAMP WIHOUT TIME ZONE")
-    private Instant createdAt;
-    
-    @Column(columnDefinition = "TIMESTAMP WIHOUT TIME ZONE")
-    private Instant updateAt;
-    
+   
 //### Relacionamentos ###
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
@@ -208,23 +203,7 @@ public class Empresa implements Serializable{
 		return setor;
 	}
 	
-	public Instant getCreatedAt() {
-		return createdAt;
-	}
-
-	public Instant getUpdateAt() {
-		return updateAt;
-	}
-
-	@PrePersist
-	public void prePersist() {
-		createdAt = Instant.now();
-	}
 	
-	@PreUpdate
-	public void preUpdate() {
-		updateAt = Instant.now();
-	}
 	
 
 //Generate hadsCode() and  equals()  somente do id;
