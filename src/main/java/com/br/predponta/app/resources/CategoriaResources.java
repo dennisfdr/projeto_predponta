@@ -107,12 +107,12 @@ public class CategoriaResources {
 	
 	@ApiOperation(value="Atualiza Categoria")
 	@PutMapping(value = "/{catCodigo}")
-    public ResponseEntity<Categoria> update(@PathVariable(value = "catCodigo") Integer catCodigo, @Valid @RequestBody Categoria newCategoria)
+    public ResponseEntity<Categoria> update(@PathVariable(value = "catCodigo") Integer catCodigo, @Valid @RequestBody Categoria newEntity)
     {
-        Optional<Categoria> oldCategoria = repository.findById(catCodigo);
-        if(oldCategoria.isPresent()){
-            Categoria categoria = oldCategoria.get();
-            categoria.setCatDescricao(newCategoria.getCatDescricao());
+        Optional<Categoria> oldEntity = repository.findById(catCodigo);
+        if(oldEntity.isPresent()){
+            Categoria categoria = oldEntity.get();
+            categoria.setCatDescricao(newEntity.getCatDescricao());
             repository.save(categoria);
             return new ResponseEntity<Categoria>(categoria, HttpStatus.OK);
         }

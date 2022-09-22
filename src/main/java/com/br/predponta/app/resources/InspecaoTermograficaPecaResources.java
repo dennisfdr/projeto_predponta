@@ -30,7 +30,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value= "/inspecaotermograficapeca")
-@Api(value="API REST Medicao Análise Vibracao")
+@Api(value="API REST Inspeção Termográica Peca")
 @CrossOrigin(origins = "*")
 
 public class InspecaoTermograficaPecaResources {
@@ -39,10 +39,10 @@ public class InspecaoTermograficaPecaResources {
 	
 	@Autowired
 	private InspecaoTermograficaPecaRepository repository;
-	@Autowired
-	private InspecaoTermograficaRepository repositoryInspecaoTermografica;
 	
-	@ApiOperation(value="Busca todos Status Componente Vibracao")
+	
+	
+	@ApiOperation(value="Busca todos Inspecao Termográrica Peça")
 	@GetMapping
 	public ResponseEntity<List<InspecaoTermograficaPeca>> findAll(){
 		List <InspecaoTermograficaPeca> list = repository.findAll();

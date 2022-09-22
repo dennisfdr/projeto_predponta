@@ -37,7 +37,7 @@ public class EmpresaResources {
 	@Autowired
 	private EmpresaRepository repository;
 	
-	@ApiOperation(value="Busca todas as vibrações empresas")
+	@ApiOperation(value="Busca todas as empresas")
 	@GetMapping
 	public ResponseEntity<List<EmpresaDTO>> findAll(){
 		List <EmpresaDTO> list = service.findAll();

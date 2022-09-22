@@ -73,6 +73,12 @@ public class Empresa implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date empProxMedicaoMca;
     
+    @Column(columnDefinition = "TIMESTAMP WIHOUT TIME ZONE")
+    private Instant createdAt;
+    
+    @Column(columnDefinition = "TIMESTAMP WIHOUT TIME ZONE")
+    private Instant updateAt;
+    
    
 //### Relacionamentos ###
     
@@ -202,6 +208,25 @@ public class Empresa implements Serializable{
 	public List<Setor> getSetor() {
 		return setor;
 	}
+	
+	public Instant getCreatedAt() {
+		return createdAt;
+	}
+
+	public Instant getUpdateAt() {
+		return updateAt;
+	}
+
+	@PrePersist
+	public void prePersist() {
+		createdAt = Instant.now();
+	}
+	
+	@PreUpdate
+	public void preUpdate() {
+		updateAt = Instant.now();
+	}
+	
 	
 	
 	
