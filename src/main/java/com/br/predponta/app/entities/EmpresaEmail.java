@@ -45,7 +45,7 @@ public class EmpresaEmail implements Serializable{
     
     @JoinColumn(name = "empresa_emp_codigo", referencedColumnName = "emp_codigo")
     @ManyToOne(optional = false)
-    @JsonIgnore
+    //@JsonIgnore
     private Empresa empresa;   
     
 //      

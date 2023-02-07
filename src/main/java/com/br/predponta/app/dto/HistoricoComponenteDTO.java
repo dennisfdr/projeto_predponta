@@ -9,7 +9,7 @@ import com.br.predponta.app.entities.HistoricoComponente;
 public class HistoricoComponenteDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-    private long hcoCodigo;
+    private Integer hcoCodigo;
     private String hcoObservacao;
     private String hcoOrdemServico;
     
@@ -19,7 +19,7 @@ public class HistoricoComponenteDTO implements Serializable{
 			
 		}
 
-		public HistoricoComponenteDTO(long hcoCodigo, String hcoObservacao, String hcoOrdemServico, Integer componente) {
+		public HistoricoComponenteDTO(Integer hcoCodigo, String hcoObservacao, String hcoOrdemServico, Integer componente) {
 
 	        this.hcoCodigo = hcoCodigo;
 	        this.hcoObservacao = hcoObservacao;
@@ -43,11 +43,11 @@ public class HistoricoComponenteDTO implements Serializable{
 				
 //Generate Getters and Setters;
 	
-		public long getHcoCodigo() {
+		public Integer getHcoCodigo() {
 			return hcoCodigo;
 		}
 
-		public void setHcoCodigo(long hcoCodigo) {
+		public void setHcoCodigo(Integer hcoCodigo) {
 			this.hcoCodigo = hcoCodigo;
 		}
 

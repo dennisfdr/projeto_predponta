@@ -12,7 +12,7 @@ public class ComponentePecaDTO implements Serializable{
 
     private Integer copCodigo;
     private String copDescricao;
-    private int copStatus;
+    private boolean copStatus;
 	
     private Integer componente;
 			
@@ -20,7 +20,7 @@ public class ComponentePecaDTO implements Serializable{
 			
 		}
 
-		public ComponentePecaDTO(Integer copCodigo, String copDescricao, int copStatus, Integer componente) {
+		public ComponentePecaDTO(Integer copCodigo, String copDescricao, boolean copStatus, Integer componente) {
 
 	        this.copCodigo = copCodigo;
 	        this.copDescricao = copDescricao;
@@ -60,11 +60,11 @@ public class ComponentePecaDTO implements Serializable{
 			this.copDescricao = copDescricao;
 		}
 
-		public int getCopStatus() {
+		public boolean getCopStatus() {
 			return copStatus;
 		}
 
-		public void setCopStatus(int copStatus) {
+		public void setCopStatus(boolean copStatus) {
 			this.copStatus = copStatus;
 		}
 

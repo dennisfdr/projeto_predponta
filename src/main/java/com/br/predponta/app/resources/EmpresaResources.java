@@ -2,8 +2,12 @@ package com.br.predponta.app.resources;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.br.predponta.app.dto.EmpresaDTO;
+import com.br.predponta.app.entities.Categoria;
 import com.br.predponta.app.entities.Empresa;
 import com.br.predponta.app.repositories.EmpresaRepository;
 import com.br.predponta.app.servicies.EmpresaService;
@@ -80,12 +85,36 @@ public class EmpresaResources {
 				return ResponseEntity.created(uri).body(dto);
 	}
 	
-	@ApiOperation(value="Atualiza empresa")
+	/*@ApiOperation(value="Atualiza empresa")
 	@PutMapping(value = "/{empCodigo}")
 	public ResponseEntity<EmpresaDTO> update(@PathVariable Integer empCodigo,@RequestBody EmpresaDTO dto){
 		dto = service.update (empCodigo, dto);
 		return ResponseEntity.ok().body(dto);
-	}			
+	}*/
+	
+	@ApiOperation(value="Atualiza Empresa")
+	@PutMapping(value = "/{empCodigo}")
+    public ResponseEntity<Empresa> update(@PathVariable(value = "empCodigo") Integer empCodigo, @Valid @RequestBody Empresa newEntity)
+    {
+        Optional<Empresa> oldEntity = repository.findById(empCodigo);
+        if(oldEntity.isPresent()){
+            Empresa empresa = oldEntity.get();
+            empresa.setEmpNome(newEntity.getEmpNome());
+            empresa.setEmpStatus(newEntity.getEmpStatus());
+            empresa.setEmpLogo(newEntity.getEmpLogo());
+            empresa.setEmpPeriodicidadeIt(newEntity.getEmpPeriodicidadeIt());
+            empresa.setEmpPeriodicidadeRi(newEntity.getEmpPeriodicidadeRi());
+            empresa.setEmpPeriodicidadeMca(newEntity.getEmpPeriodicidadeMca());
+            empresa.setEmpProxMedicaoIt(newEntity.getEmpProxMedicaoIt());
+            empresa.setEmpProxMedicaoRi(newEntity.getEmpProxMedicaoRi());
+            empresa.setEmpProxMedicaoMca(newEntity.getEmpProxMedicaoMca());
+            repository.save(empresa);
+            return new ResponseEntity<Empresa>(empresa, HttpStatus.OK);
+        }
+        else
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+	
 	
 	@ApiOperation(value="Deleta empresa")
 	@DeleteMapping(value = "/{empCodigo}")

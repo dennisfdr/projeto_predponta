@@ -34,7 +34,7 @@ public class ComponentePeca implements Serializable{
     @Basic(optional = false)
     @NotNull
     @Column(name = "cop_status")
-    private int copStatus;
+    private boolean copStatus;
 
 //### Relacionamentos ###
     
@@ -47,7 +47,7 @@ public class ComponentePeca implements Serializable{
     public ComponentePeca() {
     }
     
-	public ComponentePeca(Integer copCodigo, @NotNull @Size(min = 1, max = 50) String copDescricao, @NotNull int copStatus, Componente componente){
+	public ComponentePeca(Integer copCodigo, @NotNull @Size(min = 1, max = 50) String copDescricao, @NotNull boolean copStatus, Componente componente){
 		super();
 		
         this.copCodigo = copCodigo;
@@ -75,11 +75,11 @@ public class ComponentePeca implements Serializable{
 		this.copDescricao = copDescricao;
 	}
 
-	public int getCopStatus() {
+	public boolean getCopStatus() {
 		return copStatus;
 	}
 
-	public void setCopStatus(int copStatus) {
+	public void setCopStatus(boolean copStatus) {
 		this.copStatus = copStatus;
 	}
 

@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "status_sub_componente")
@@ -41,6 +43,7 @@ public class StatusSubComponente implements Serializable{
     
     @JoinColumn(name = "componente_com_codigo", referencedColumnName = "com_codigo")
     @ManyToOne(optional = false)
+   
     private Componente componente;
     
 //      

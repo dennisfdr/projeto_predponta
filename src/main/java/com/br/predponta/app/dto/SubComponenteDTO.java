@@ -12,7 +12,7 @@ public class SubComponenteDTO implements Serializable{
 
     private Integer scoCodigo;
     private String scoNome;
-    private int scoStatus;
+    private boolean scoStatus;
     
     private Integer componentePeca;
 			
@@ -20,7 +20,7 @@ public class SubComponenteDTO implements Serializable{
 			
 		}
 
-		public SubComponenteDTO(Integer scoCodigo, String scoNome, int scoStatus, Integer componentePeca) {
+		public SubComponenteDTO(Integer scoCodigo, String scoNome, boolean scoStatus, Integer componentePeca) {
 
 	        this.scoCodigo = scoCodigo;
 	        this.scoNome = scoNome;
@@ -60,11 +60,11 @@ public class SubComponenteDTO implements Serializable{
 			this.scoNome = scoNome;
 		}
 
-		public int getScoStatus() {
+		public boolean getScoStatus() {
 			return scoStatus;
 		}
 
-		public void setScoStatus(int scoStatus) {
+		public void setScoStatus(boolean scoStatus) {
 			this.scoStatus = scoStatus;
 		}
 

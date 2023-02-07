@@ -1,5 +1,6 @@
 package com.br.predponta.app.resources;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.br.predponta.app.dto.ArquivoUploadDTO;
 import com.br.predponta.app.entities.ArquivoUpload;
@@ -73,6 +75,13 @@ public class ArquivoUploadResources {
 	@ApiOperation(value="Salva empresas imagens")
 	@PostMapping
 	public void saveAll(@RequestBody List<ArquivoUpload> dto){
+		
+		for(int i=0; i<dto.size(); i++) {
+			System.out.println(dto.get(i).getAruCodigo());
+			System.out.println(dto.get(i).getAruDescricao());
+			System.out.println(dto.get(i).getAruData());
+			System.out.println(dto.get(i).getEmpresa());
+		}
 		
 		repository.saveAll(dto);		
 				

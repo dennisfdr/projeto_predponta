@@ -3,6 +3,8 @@ package com.br.predponta.app.resources;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -20,6 +23,7 @@ import com.br.predponta.app.dto.EmpresaEmailDTO;
 import com.br.predponta.app.entities.EmpresaEmail;
 import com.br.predponta.app.repositories.EmpresaEmailRepository;
 import com.br.predponta.app.servicies.EmpresaEmailService;
+import com.google.common.net.MediaType;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -74,6 +78,13 @@ public class EmpresaEmailResources {
 	@ApiOperation(value="Salva empresas email")
 	@PostMapping
 	public void saveAll(@RequestBody List<EmpresaEmail> dto){
+		
+		for(int i=0; i<dto.size(); i++) {
+			System.out.println(dto.get(i).getEmeCodigo());
+			System.out.println(dto.get(i).getEmeEmail());
+			System.out.println(dto.get(i).getEmeResponsavel());
+			System.out.println(dto.get(i).getEmpresa());
+		}
 		
 		repository.saveAll(dto);		
 				

@@ -11,7 +11,7 @@ public class ComponenteDTO implements Serializable{
 
     private Integer comCodigo;
     private String comNome;
-    private int comStatus;
+    private boolean comStatus;
     
     private Integer maquinaequipamentoMAECODIGO;
 			
@@ -19,7 +19,7 @@ public class ComponenteDTO implements Serializable{
 			
 		}
 
-		public ComponenteDTO(Integer comCodigo, String comNome, int comStatus, Integer maquinaequipamentoMAECODIGO) {
+		public ComponenteDTO(Integer comCodigo, String comNome, boolean comStatus, Integer maquinaequipamentoMAECODIGO) {
 
 			this.comCodigo = comCodigo;
 			this.comNome = comNome;
@@ -57,11 +57,11 @@ public class ComponenteDTO implements Serializable{
 			this.comNome = comNome;
 		}
 
-		public int getComStatus() {
+		public boolean getComStatus() {
 			return comStatus;
 		}
 
-		public void setComStatus(int comStatus) {
+		public void setComStatus(boolean comStatus) {
 			this.comStatus = comStatus;
 		}
 

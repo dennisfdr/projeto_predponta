@@ -12,7 +12,7 @@ public class MaquinaEquipamentoDTO implements Serializable{
     private Integer maeCodigo;
     private String maeNome;
     private String maeTag;
-    private int maeStatus;
+    private boolean maeStatus;
     
     private Integer maquinamaqCodigo;
 			
@@ -20,7 +20,7 @@ public class MaquinaEquipamentoDTO implements Serializable{
 			
 		}
 
-		public MaquinaEquipamentoDTO(Integer maeCodigo, String maeNome, String maeTag, int maeStatus, Integer maquinamaqCodigo) {
+		public MaquinaEquipamentoDTO(Integer maeCodigo, String maeNome, String maeTag, boolean maeStatus, Integer maquinamaqCodigo) {
 			
 			this.maeCodigo = maeCodigo;
 	        this.maeNome = maeNome;
@@ -67,11 +67,11 @@ public class MaquinaEquipamentoDTO implements Serializable{
 			this.maeTag = maeTag;
 		}
 
-		public int getMaeStatus() {
+		public boolean getMaeStatus() {
 			return maeStatus;
 		}
 
-		public void setMaeStatus(int maeStatus) {
+		public void setMaeStatus(boolean maeStatus) {
 			this.maeStatus = maeStatus;
 		}
 

@@ -20,6 +20,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
@@ -81,13 +83,13 @@ public class Empresa implements Serializable{
     
    
 //### Relacionamentos ###
-    
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
     private List<ArquivoUpload> arquivoUpload;
-   
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
     private List<Setor> setor;
-    
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa")
     private List<EmpresaEmail> empresaEmail;    
     

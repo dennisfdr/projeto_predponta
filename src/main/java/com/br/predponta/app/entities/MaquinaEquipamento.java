@@ -40,7 +40,7 @@ public class MaquinaEquipamento implements Serializable{
     @Basic(optional = false)
     @NotNull
     @Column(name = "MAE_STATUS")
-    private int maeStatus;
+    private boolean maeStatus;
     
 //### Relacionamentos ###   
     
@@ -56,7 +56,7 @@ public class MaquinaEquipamento implements Serializable{
     public MaquinaEquipamento() {
     }
     
-	public MaquinaEquipamento(Integer maeCodigo, @NotNull @Size(min = 1, max = 80) String maeNome, @NotNull int maeStatus, Maquina maquina, @Size(max = 10) String maeTag ){
+	public MaquinaEquipamento(Integer maeCodigo, @NotNull @Size(min = 1, max = 80) String maeNome, @NotNull boolean maeStatus, Maquina maquina, @Size(max = 10) String maeTag ){
 		super();
         
 		this.maeCodigo = maeCodigo;
@@ -93,11 +93,11 @@ public class MaquinaEquipamento implements Serializable{
 		this.maeTag = maeTag;
 	}
 
-	public int getMaeStatus() {
+	public boolean getMaeStatus() {
 		return maeStatus;
 	}
 
-	public void setMaeStatus(int maeStatus) {
+	public void setMaeStatus(boolean maeStatus) {
 		this.maeStatus = maeStatus;
 	}
 

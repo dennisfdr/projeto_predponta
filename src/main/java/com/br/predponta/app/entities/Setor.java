@@ -47,7 +47,7 @@ public class Setor implements Serializable{
     
     @JoinColumn(name = "empresa_emp_codigo", referencedColumnName = "emp_codigo")
     @ManyToOne(optional = false)
-    @JsonIgnore
+    //@JsonIgnore
     private Empresa empresa;   
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "setor")

@@ -69,10 +69,22 @@ public class MaquinaEquipamentoResources {
 			return ResponseEntity.ok().body(dto);	
 	}
 	
-	@ApiOperation(value="Salva maeuina equipamento")
+	/*@ApiOperation(value="Salva maquina equipamento")
 	@PostMapping
 	public ResponseEntity<MaquinaEquipamentoDTO> insert(@RequestBody MaquinaEquipamentoDTO dto){
 		dto = service.insert (dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{maeCodigo}")
+				
+				.buildAndExpand(dto.getMaeCodigo()).toUri();
+		
+				return ResponseEntity.created(uri).body(dto);
+	}*/
+	
+	
+	@ApiOperation(value="Salva maquina-equipamento")
+	@PostMapping
+	public ResponseEntity<MaquinaEquipamento> insert(@RequestBody MaquinaEquipamento dto){
+		dto = repository.saveAndFlush(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{maeCodigo}")
 				
 				.buildAndExpand(dto.getMaeCodigo()).toUri();

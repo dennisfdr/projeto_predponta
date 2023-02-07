@@ -14,9 +14,12 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "historico_componente")
+
 public class HistoricoComponente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -25,7 +28,7 @@ public class HistoricoComponente implements Serializable{
 		
     @Basic(optional = false)
     @Column(name = "hco_codigo")
-    private long hcoCodigo;
+    private Integer hcoCodigo;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 200)
@@ -41,6 +44,7 @@ public class HistoricoComponente implements Serializable{
     
     @JoinColumn(name = "componente_com_codigo", referencedColumnName = "com_codigo")
     @ManyToOne(optional = false)
+    
     private Componente componente;
     
 //      
@@ -48,7 +52,7 @@ public class HistoricoComponente implements Serializable{
     public HistoricoComponente() {
     }
     
-	public HistoricoComponente(@NotNull long hcoCodigo, @NotNull @Size(min = 1, max = 200) String hcoObservacao, @NotNull @Size(min = 1, max = 30) String hcoOrdemServico, Componente componente){
+	public HistoricoComponente(@NotNull Integer hcoCodigo, @NotNull @Size(min = 1, max = 200) String hcoObservacao, @NotNull @Size(min = 1, max = 30) String hcoOrdemServico, Componente componente){
 		super();
 		
         this.hcoCodigo = hcoCodigo;
@@ -60,11 +64,11 @@ public class HistoricoComponente implements Serializable{
 	
 //Generate Getters and Setters;
 	
-	public long getHcoCodigo() {
+	public Integer getHcoCodigo() {
 		return hcoCodigo;
 	}
 
-	public void setHcoCodigo(long hcoCodigo) {
+	public void setHcoCodigo(Integer hcoCodigo) {
 		this.hcoCodigo = hcoCodigo;
 	}
 

@@ -37,7 +37,7 @@ public class SubComponente implements Serializable{
     @Basic(optional = false)
     @NotNull
     @Column(name = "sco_status")
-    private int scoStatus;
+    private boolean scoStatus;
 
 //### Relacionamentos ###
     
@@ -53,7 +53,7 @@ public class SubComponente implements Serializable{
     public SubComponente() {
     }
     
-	public SubComponente(Integer scoCodigo, @NotNull @Size(min = 1, max = 80) String scoNome, @NotNull int scoStatus, ComponentePeca componentePeca){
+	public SubComponente(Integer scoCodigo, @NotNull @Size(min = 1, max = 80) String scoNome, @NotNull boolean scoStatus, ComponentePeca componentePeca){
 		super();
 		
         this.scoCodigo = scoCodigo;
@@ -81,11 +81,11 @@ public class SubComponente implements Serializable{
 		this.scoNome = scoNome;
 	}
 
-	public int getScoStatus() {
+	public boolean getScoStatus() {
 		return scoStatus;
 	}
 
-	public void setScoStatus(int scoStatus) {
+	public void setScoStatus(boolean scoStatus) {
 		this.scoStatus = scoStatus;
 	}
 

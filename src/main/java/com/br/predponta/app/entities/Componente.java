@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -40,7 +41,7 @@ public class Componente implements Serializable{
     @Basic(optional = false)
     @NotNull
     @Column(name = "com_status")
-    private int comStatus;
+    private boolean comStatus;
     
 //### Relacionamentos ###
     
@@ -48,19 +49,20 @@ public class Componente implements Serializable{
     @ManyToOne(optional = false)
     private MaquinaEquipamento maquinaequipamentoMAECODIGO;  
     
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "componente")
+   /* @OneToMany(cascade = CascadeType.ALL, mappedBy = "componente")
+    @JsonIgnore
     private List<HistoricoComponente> historicoComponente;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "componente")
     private List<StatusSubComponente> statusSubComponente;
-    
+    */
 //    
     
   
     public Componente() {
     }
 
-	public Componente(Integer comCodigo, @NotNull @Size(min = 1, max = 80) String comNome, @NotNull int comStatus, MaquinaEquipamento maquinaequipamentoMAECODIGO){
+	public Componente(Integer comCodigo, @NotNull @Size(min = 1, max = 80) String comNome, @NotNull boolean comStatus, MaquinaEquipamento maquinaequipamentoMAECODIGO){
 		super();
 		
         this.comCodigo = comCodigo;
@@ -88,11 +90,11 @@ public class Componente implements Serializable{
 		this.comNome = comNome;
 	}
 
-	public int getComStatus() {
+	public boolean getComStatus() {
 		return comStatus;
 	}
 
-	public void setComStatus(int comStatus) {
+	public void setComStatus(boolean comStatus) {
 		this.comStatus = comStatus;
 	}
 

@@ -85,6 +85,7 @@ public class ComponenteResources {
 	@ApiOperation(value="Salva componente")
 	@PostMapping
 	public ResponseEntity<Componente> insert(@RequestBody Componente dto){
+		System.out.println(dto.getMaquinaequipamentoMAECODIGO());
 		repository.save(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{comCodigo}")
 				
